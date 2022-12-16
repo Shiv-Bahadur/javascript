@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 class="title">IPL Season 2022 Points</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>No</th>
+          <th>Team</th>
+          <th>Matches</th>
+          <th>Won</th>
+          <th>Lost</th>
+          <th>Tied</th>
+          <th>NRR</th>
+          <th>Points</th>
+        </tr>
+      </thead>
+      <tbody id="display"></tbody>
+    </table>
+
+    <script>
+          let tbody=document.getElementById("display");
+
+          async function getData() {
+                 let data= await fetch("https://my-json-server.typicode.com/FreSauce/json-ipl/data");
+                 let jsonData= await data.json();
+                 console.log(jsonData);
+                 showData(jsonData);
+          }
+          getData();
+           
+          function showData(data){
+
+            data.sort(function(a,b){return a.NRR - b.NRR});
+            //points.sort(function(a, b){return a - b});
+
+            let j=1;
+            for(let i of data){
+              let row=document.createElement("tr");
+
+              let sNo=document.createElement("td");
+              sNo.innerHTML=j++;
+              row.appendChild(sNo);
+
+              let team=document.createElement("td");
+              team.innerHTML=i.Team;
+              row.appendChild(team);
+
+              let match=document.createElement("td");
+              match.innerHTML=i.Matches;
+              row.appendChild(match);
+
+              let won=document.createElement("td");
+              won.innerHTML=i.Won;
+              row.appendChild(won);
+
+              let lost=document.createElement("td");
+              lost.innerHTML=i.Lost;
+              row.appendChild(lost);
+
+              let tied=document.createElement("td");
+              tied.innerHTML=i.Tied;
+              row.appendChild(tied);
+
+              let nrr=document.createElement("td");
+              nrr.innerHTML=i.NRR;
+              row.appendChild(nrr);
+
+              let Points=document.createElement("td");
+              Points.innerHTML=i.Points;
+              row.appendChild(Points);
+
+              tbody.appendChild(row);  
+            }
+          }
+          
+    </script>
+</body>
+</html>

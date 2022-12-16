@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <Style>
+
+    /*   div p : select all the <p> tags which is present inside the div tag.
+         div >p : select all the child <p> tags but do not select grandchild elements
+         div +p : select only one adjacent <p> tag if present.
+         div ~ p : select all the adjacent <p> tags.    */
+
+         
+
+        div p{
+            background-color: aqua;
+        } 
+        div > p{
+            background-color: gray;
+        } 
+        div + p{
+            background-color: green;
+         }
+        div ~ p{
+            background-color: red;
+        }  
+    </Style>
+
+</head>
+<body>
+    <h1>selectors in css</h1>
+    <div>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+        <section>this is a section.</section>
+        <section>
+            <p>this paragraph is written in the section tag and grand daughter of div tag.</p>
+        </section>
+        <p>this is a paragraph tag</p>
+    </div>
+    <p>this is another paragraph section.</p>
+    <p>this is another paragraph section.</p>
+             
+</body>
+</html>

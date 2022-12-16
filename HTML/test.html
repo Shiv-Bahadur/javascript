@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WEATHER FORECAST</title>
+    <link rel="stylesheet" href="/CSS/weather.css">
+</head>
+
+<body>
+    <div id="backg">
+        <video autoplay loop muted>
+            <source src="/EXTRA/Cloud.mp4" type="video/mp4">
+        </video>
+
+        <h1 id="heading">WEATHER FORECAST</h1>
+
+
+        <input type="search" id="city" placeholder="enter your city">
+        <br><br>
+        <button id="submit">WEATHER</button>
+        <div id="show">
+            <p id="temperature"></p>
+            <p style="display: inline;" id="icon"></p>
+            <p style="display: inline;" id="description"></p>
+            <p id="humidity"></p>
+            <p id="windSpeed"></p>
+            <p id="pressure"></p>
+        </div>
+    </div>
+    <script src="/JAVASCRIPT/script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for="key">enter key:</label>
+    <input type="text" id="key">
+    <label for="val">enter value:</label>
+    <input type="text" id="val">
+    <button id="sub">submit</button>
+
+    <div id="show"></div>
+
+    <script>
+        
+        let sub=document.getElementById("sub");
+        sub.addEventListener("click",()=>{
+            let key=document.getElementById("key").value;
+            let val=document.getElementById("val").value;
+            let data={
+             key : val
+            }
+            
+            });
+        
+    </script>
+</body>
+</html>

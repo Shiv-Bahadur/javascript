@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="wind.css">
+
+</head>
+
+<body onload="geo()">
+    <div class="main-container">
+
+        <div class="top-cont">
+            <div class="left-cont">
+                <div class="wc-cont">
+                    <h1 class="W-C">Weather <span id="country">India</span></h1>
+                </div>
+                <div class="city-name">
+                    <div class="city-lat-lon">
+                        <h2 id="city-Name">Surat</h2>
+                        <p>Lat : <span id="lat" class="chcolor">lat</span></p>
+                        <p>Lon : <span id="lon" class="chcolor">lon</span></p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="right-cont">
+                <div class="time-cont">
+                    <div class="time-flex">
+                        <p id="hour">hh</p>
+                        <p id="colon">:</p>
+                        <p id="min">mm</p>
+                        <p id="sec">ss</p>
+                        <p id="am-pm">srk</p>
+                    </div>
+                </div>
+                <div class="city-state-selecter">
+                    <select id="state-select" onchange="selectByCity(this.value)">
+                        <option value="" selected>Select State</option>
+                        <option value="Bihar">Bihar</option>
+                        <option value="Gujarat">Gujarat</option>
+                        <option value="UttarPradesh">Uttar Pradesh</option>
+                        <option value="MadhyaPradesh">Madhya Pradesh</option>
+                        <option value="Maharashtra">Maharashtra</option>
+                    </select>
+                    <select id="city-select">
+                        <option value="" selected>Select city</option>
+                    </select>
+                    
+                </div>
+                <div class="gwether">
+                    <button onclick="getWetherByCity()">Get Weather</button>
+                </div>
+                
+                <div class="search-cont">
+                    <input type="text" id="search" placeholder="Search directly by entering city name"
+                        onfocus="focuss()" onblur="blurs()" onmouseover="onmousehover()" onmouseout="onmouseouts()">
+                    <button id="go" onclick="loadWeather()">Search</button>
+                </div>
+                <div class="main-weather-cont">
+                    <div class="weather-data">
+                        <div class="date-cont">
+                            <p id="mdate">Monday</p>
+                            <img id="mi" src="" alt="icon" width="50" height="50">
+                        </div>
+                        <div class="temp-cont">
+                            <div class="degcel">
+                                <p class="tmp chcolor" id="temp">22</p>
+                                <p class="deg chcolor">O</p>
+                                <p class="cel chcolor">C</p>
+                            </div>
+
+                            <p id="sunny" class="chcolor">Sunny</p>
+                            <div class="degcel">
+                                <p class="tempm">Min : <span id="minmum" class="chcolor">mn</span></p>
+                                <p class="degm chcolor">O</p>
+                                <p class="celm chcolor">C</p>
+                            </div>
+                            <div class="degcel">
+                                <p class="tempm">Max : <span id="max" class="chcolor">mx</span></p>
+                                <p class="degm chcolor">O</p>
+                                <p class="celm chcolor">C</p>
+                            </div>
+
+                            <p class="tempm">Windspeed : <span id="windspeed" class="chcolor">wind</span></p>
+                            <p class="tempm">Humidity : <span id="humidity" class="chcolor">hum</span></p>
+                            <p class="tempm" id="sunrise">Sunrise : <span id="rise" class="chcolor">rise</span> <span
+                                    id="srap" class="chcolor"> Am</span></p>
+                            <p class="tempm" id="sunset">Sunset : <span id="set" class="chcolor">set</span> <span
+                                    id="ssap" class="chcolor"> Pm</span></p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+        <div class="bottom-cont">
+
+            <div class="forecast">
+               
+
+            </div>
+            <div class="forecast">
+
+            </div>
+            <div class="forecast">
+
+            </div>
+            <div class="forecast">
+
+            </div>
+            <div class="forecast">
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+
+
+
+    <script src="wind.js"></script>
+</body>
+
+</html>

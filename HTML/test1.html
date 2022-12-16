@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table,tr,td,th{
+            border: 1px solid black;
+            border-collapse: collapse;
+            width: 50%;
+        }
+    </style>
+</head>
+<body><h1>Here is the sum:</h1>
+
+    <div class="div2">
+        <p></p>
+        <h1></h1>
+    </div>
+    <div>this is another div</div>
+    <div>this is 3rd div</div>
+    <p class="div2"></p>
+
+
+    <script>
+        //   let a=document.querySelector("div.div2");
+        //    a.textContent="new created div.";
+
+            let sel=document.body;
+
+        //    let ul=document.createElement("ul");
+        //    ul.className="list";
+        //    ul.id="list1";
+        //    let li1=document.createElement("li");
+        //     li1.textContent="list 1 is created";
+        //     let li2=document.createElement("li");
+        //     li2.textContent="list 2 is created";
+        //    ul.appendChild(li1);
+        //    ul.appendChild(li2);
+        //    sel.appendChild(ul);
+        //    console.log(ul);
+
+
+        // let ul=document.createElement("ul");
+        // let arr=[1,2,3,4,5,6,7,8,9];
+        // for(let i=0;i<arr.length;i++){
+        //    let li=document.createElement("li");
+        //    li.textContent=arr[i];
+        //    ul.appendChild(li);
+        // }
+        // sel.appendChild(ul);
+
+
+        // let table=document.createElement("table");
+        // table.id="tab";
+        // let raw1=document.createElement("tr");
+
+        // let col1=document.createElement("td");
+        // col1.textContent="column 1";
+
+        // let col2=document.createElement("td");
+        // col2.textContent="column 2";
+
+        // raw1.appendChild(col1);
+        // raw1.appendChild(col2);
+        // table.appendChild(raw1);
+        // sel.appendChild(table);
+
+        let grocerySum=0;
+        let groceryTotalSum=0;
+        let table =document.createElement("table");
+        for(let i=0;i<10;i++){
+           let raw=document.createElement("tr");
+           let col=document.createElement("th");
+           col.textContent=i;
+           let col1=document.createElement("td");
+           col1.textContent=2*i;
+           raw.appendChild(col);
+           raw.appendChild(col1);
+           table.appendChild(raw);
+           grocerySum +=i;
+           groceryTotalSum += 2*i;
+        }
+        let raw=document.createElement("tr");
+           let col=document.createElement("th");
+           col.textContent=grocerySum;
+           let col1=document.createElement("th");
+           col1.textContent=groceryTotalSum;
+           raw.appendChild(col);
+           raw.appendChild(col1);
+           table.appendChild(raw);
+        sel.appendChild(table);
+    </script>
+</body>
+</html>

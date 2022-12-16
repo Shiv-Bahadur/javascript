@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .masterContainer{
+            margin: 3%;
+            border: 70px solid gray;
+            font-size: x-large;
+            padding-bottom: 3%;
+            background-color: aquamarine;
+            box-shadow: 30px 20px 30px ;
+            text-shadow: 5px 8px 12px;
+        }
+        #container{
+            height: 420px;
+            display: grid;
+            grid-template-columns: auto auto auto;
+            justify-content: space-around;
+            
+        }
+        #submit{
+            width: 40%;
+            height: 50px;
+            border-radius: 20px;
+            font-size: xx-large;
+            font-weight: bolder;
+            font-style: italic;
+            font-family: fantasy;
+            background-color: darkolivegreen;
+            box-shadow: 10px 15px 25px; /*height spread blur */
+            letter-spacing: 1px;
+         }
+         #submit:hover{
+            color:white;
+            background-color: black;
+            cursor: grab; /* pointer,grabbing,wait  */
+         }
+        select,input{
+            height: 25px;
+            width: 220px;
+            border-radius: 15px;
+            border: 1px solid grey;
+            box-shadow: 5px 8px 25px;
+        }
+    </style>
+</head>
+<body>
+    <div class="masterContainer">
+    <center><u><h1>Form</h1></u></center>
+    <div id="container">
+    <div>
+       <label for="fName">First Name :</label> 
+       <input type="text" id="fName" placeholder="e.g. shiv" onblur="firstName()">
+       <label for="fName" id="fNameLabel" style="display: none; color: red;">Name field cannot be empty.</label>
+    </div>
+    <div>
+       <label for="lName">Last Name :</label>
+       <input type="text" id="lName" placeholder="e.g. bahadur">
+    </div>
+    <div>
+       <label for="pin">PIN code :</label>   
+       <input type="number" id="pin" placeholder="e.g. 160102" onblur="pinCode()">
+       <label id="pinLabel" style="display: none;color: red; ">PIN code must contain 6 digit number.</label>
+    </div>
+    <div>
+       <label for="state">Select your state :</label>
+       <select id="state" onchange="selectedState()" onblur="selectState()">
+        <option>-----------select your state-----------</option>
+        <option>Andaman and Nicobar Islands</option>
+        <option>Andhra Pradesh</option>
+        <option>Arunachal Pradesh</option>
+        <option>Assam</option>
+        <option>Bihar</option>
+        <option>Chandigarh</option>
+        <option>Chhattisgarh</option>
+        <option>Dadra Nagar Haveli and Daman Diu</option>
+        <option>Delhi</option>
+        <option>Goa</option>
+        <option>Gujarat</option>
+        <option>Haryana</option>
+        <option>Himachal Pradesh</option>
+        <option>Jammu and Kashmir</option>
+        <option>Jharkhand</option>
+        <option>Karnataka</option>
+        <option>Kerala</option>
+        <option>Ladakh</option>
+        <option>Lakshadweep</option>
+        <option>Madhya Pradesh</option>
+        <option>Maharashtra</option>
+        <option>Manipur</option>
+        <option>Meghalaya</option>
+        <option>Mizoram</option>
+        <option>Nagaland</option>
+        <option>Odisha</option>
+        <option>Puducherry</option>
+        <option>Punjab</option>
+        <option>Rajasthan</option>
+        <option>Sikkim</option>
+        <option>Tamil Nadu</option>
+        <option>Telangana</option>
+        <option>Tripura</option>
+        <option>Uttar Pradesh</option>
+        <option>Uttarakhand</option>
+        <option>West Bengal</option>
+       </select>
+       <label for="state" id="stateLabel" style="display: none;color:red;">select your state</label>
+    </div>
+    <div>
+       <label for="city">Select your City :</label>
+       <select id="city" onblur="selectCity()">
+        <option>-----select your City-----</option>
+       </select>
+       <label for="city" id="cityLabel" style="display: none;color:red;">select your city</label>
+    </div>
+    <div>
+       <label for="phoneNumber">Phone Number :</label>
+       <input type="number" id="phoneNumber" placeholder="e.g. 8968000000" onblur="phoneNo()">
+       <label for="phoneNumber" id="phoneLabel" style="display: none;color: red;">Phone number must be of 10 digit number.</label>
+    </div>
+    <div>
+       <label for="email">Email :</label>
+       <input type="email" id="email" placeholder="e.g. meriemail@gmail.com">
+    </div>
+    <div>
+       <label for="panNumber">PAN card number :</label>
+       <input type="text" id="panNumber" placeholder="e.g. ABCDE1234F" onblur="panNo()">
+       <label for="panNumber" id="panNoLabel" style="display:none; color:red;">Entered wrong Pan number</label>
+    </div>
+    <div>
+       <label for="description">Description </label>
+       <input type="text" id="description" placeholder="e.g. anything" onblur="descrip()">
+       <label for="description" id="descriptionLabel" style="display: none;color:red;">Description field cannot be empty.</label>
+    </div>
+</div>
+    <center><button id="submit" onclick="submitForm()">Submit</button></center>
+</div>
+
+    <script>
+        function firstName(){
+            var fName=document.getElementById("fName").value;
+            if(fName=="" || fName==" "){
+                document.getElementById("fName").style.border="1px solid red";
+                document.getElementById("fNameLabel").style.display="block";
+            }else document.getElementById("fNameLabel").style.display="none";
+        }
+        function pinCode(){
+            var pinNum=document.getElementById("pin").value;
+            if(pinNum.length !=6){
+                document.getElementById("pin").style.border="1px solid red";
+                document.getElementById("pinLabel").style.display="block";
+            }else document.getElementById("pinLabel").style.display="none";
+        }
+        function selectState(){
+            var state=document.getElementById("state").value;
+            if(state=="-----------select your state-----------") document.getElementById("stateLabel").style.display="block";
+            else document.getElementById("stateLabel").style.display="none";
+            
+        }
+        function selectedState(){
+            var st=document.getElementById("state").value;
+            var str="";
+            if(st=="Andaman and Nicobar Islands"){
+                str +="<option>-----select your city-----</option> <option>Port Blair</option>";
+            }else if(st=="Andhra Pradesh"){
+                str +="<option>-----select your city-----</option> <option>Amaravati</option> <option>Visakhapatnam</option>";
+            }else if(st=="Arunachal Pradesh"){
+                str +="<option>-----select your city-----</option> <option>Itanagar</option>";
+            }else if(st=="Assam"){
+                str +="<option>-----select your city-----</option><option>Disput</option> <option>Guwahati</option> <option>Silchar</option> <option>Dibrugarh</option><option>Nagaon</option>";
+            }else if(st=="Bihar"){
+                str +="<option>Patna</option> <option>Gaya</option> <option>Bhagalpur</option> <option>Muzaffarpur</option> <option>Biharsharif</option>"
+            }else if(st=="Chandigarh"){
+                str +="<option>-----select your city-----</option> <option>Chandigarh</option>";
+            }else if(st=="Chhattisgarh"){
+                str +="<option>-----select your city-----</option> <option>Raipur</option> <option>Bhilai Nagar</option> <option>Korba</option> <option>Bilaspur</option>";
+            }else if(st=="Dadra Nagar Haveli and Daman Diu"){
+                str +="<option>-----select your city-----</option> <option>Daman</option>";
+            }else if(st=="Delhi"){
+                str +="<option>-----select your city-----</option> <option>New Delhi</option>";
+            }else if(st=="Goa"){
+                str +="<option>-----select your city-----</option> <option>Panaji</option>";
+            }else if(st=="Gujarat"){
+                str +="<option>-----select your city-----</option> <option>Gandhi Nagar</option> <option>Ahmedabad</option> <option>Surat</option> <option>Bhavnagar</option> <option>Rajkot</option> <option>Vadodara</option>";
+            }else if(st=="Haryana"){
+                str +="<option>-----select your city-----</option> <option>Faridabad</option> <option>Gurgaon</option> <option>Rohtak</option> <option>Hisar</option> <option>Panipat</option>";
+            }else if(st=="Himachal Pradesh"){
+                str +="<option>-----select your city-----</option> <option>Shimla</option> <option>Manali</option> <option>Kullu</option>";    
+            }else if(st=="Jharkhand"){
+                str +="<option>-----select your city-----</option> <option>Dhanbad</option> <option>Ranchi</option> <option>Jamshedpur</option> <option>Mango</option> <option>Bokaro</option> <option>Steel</option>";
+            }else if(st=="Karnataka"){
+                str +="<option>-----select your city-----</option> <option>Bangalore</option> <option>Hubli and Dharwad</option> <option>Mysore</option> <option>Gulbarga</option> <option>Belgaum</option>";
+            }else if(st=="Kerala"){
+                str +="<option>-----select your city-----</option> <option>Trivandrum</option> <option>Kochi</option> <option>Kozhikode</option> <option>Kollam</option> <option>Thrissur</option>";
+            }else if(st=="Madhya Pradesh"){
+                str +="<option>-----select your city-----</option> <option>Indore</option> <option>Jabalpur</option> <option>Bhopal</option> <option>Ujjain</option> <option>Gwalior</option>";
+            }else if(st=="Maharashtra"){
+                str +="<option>-----select your city-----</option> <option>Mumbai</option> <option>Pune</option> <option>Nagpur</option> <option>Thane</option> <option>Chinchwad</option> <option>Pimpri</option>";
+            }else if(st=="Manipur"){
+                str +="<option>-----select your city-----</option> <option>Imphal</option>";
+            }else if(st=="Meghalaya"){
+                str +="<option>-----select your city-----</option> <option>Shillong</option> ";
+            }else if(st=="Mizoram"){
+                str +="<option>-----select your city-----</option> <option>Aizawl</option>";
+            }else if(st=="Nagaland"){
+                str +="<option>-----select your city-----</option> <option>Kohima</option> <option></option> <option>Dimapur</option>";
+            }else if(st=="Odisha"){
+                str +="<option>-----select your city-----</option> <option>Bhubaneswar</option> <option>Brahmapur Town</option> <option>Cuttack</option> <option>Puri Town</option> <option>Raurkela</option>";
+            }else if(st=="Punjab"){
+                str +="<option>-----select your city-----</option> <option>Ludhiana</option> <option>Jalandhar</option> <option>Amritsar</option> <option>Patiala</option> <option>Bathinda</option>";
+            }else if(st=="Rajasthan"){
+                str +="<option>-----select your city-----</option> <option>	Jaipur</option> <option>Bikaner</option> <option>Jodhpur</option> <option>Kota</option> <option>Ajmer</option>";
+            }else if(st=="Sikkim"){
+                str +="<option>-----select your city-----</option> <option>Gangtok</option>";
+            }else if(st=="Tamil Nadu"){
+                str +="<option>-----select your city-----</option> <option>Chennai</option> <option>Madurai</option> <option>Coimbatore</option> <option>Tiruchirappalli</option> <option>Salem</option>";
+            }else if(st=="Telangana"){
+                str +="<option>-----select your city-----</option> <option>Hyderabad</option>";
+            }else if(st=="Tripura"){
+                str +="<option>-----select your city-----</option> <option>Agartala</option>";
+            }else if(st=="Uttar Pradesh"){
+                str +="<option>-----select your city-----</option> <option>Lucknow</option> <option>Kanpur</option> <option>Ghaziabad</option> <option>Agra</option> <option>Meerut</option>";
+            }else if(st=="Uttarakhand"){
+                str +="<option>-----select your city-----</option> <option>Dehradun</option> <option>Haldwani and Kathgodam</option> <option>Haridwar</option> <option>Rudrapur</option>";
+            }else if(st=="West Bengal"){
+                str +="<option>-----select your city-----</option> <option>Kolkata</option> <option>Haora</option> <option>Durgapur</option> <option>Asansol</option> <option>Siliguri</option>";
+            }else if(st=="Jammu and Kashmir"){
+                str +="<option>-----select your city-----</option> <option>Jammu</option> <option>Srinagar</option> <option></option>";
+            }else if(st=="Ladakh"){
+                str +="<option>-----select your city-----</option> <option>Leh</option>";
+            }else if(st=="Lakshadweep"){
+                str +="<option>-----select your city-----</option> <option>Kavaratti</option>";
+            }else if(st=="Puducherry"){
+                str +="<option>-----select your city-----</option> <option>Ozhukarai</option> <option>Puducherry</option> ";
+            }else{
+                str +="<option>select your city</option>"
+            }
+            document.getElementById("city").innerHTML=str;
+        }
+        function selectCity(){
+            var city=document.getElementById("city").value;
+            if(city=="-----select your City-----") document.getElementById("cityLabel").style.display="block";
+            else document.getElementById("cityLabel").style.display="none";
+        }
+         function phoneNo(){
+            var phoneNumber=document.getElementById("phoneNumber").value;
+            if(phoneNumber.length != 10){
+                document.getElementById("phoneNumber").style.border="1px solid red";
+                document.getElementById("phoneLabel").style.display="block";
+            }else document.getElementById("phoneLabel").style.display="none";
+         }
+         function panNo(){
+            var panNumber=document.getElementById("panNumber").value;
+            if(panNumber.length != 10){
+                document.getElementById("panNumber").style.border="1px solid red";
+                document.getElementById("panNoLabel").style.display="block";
+            }else document.getElementById("panNoLabel").style.display="none";
+         }
+         function descrip(){
+            var description=document.getElementById("description").value;
+            if(description=="" || description==" "){
+                document.getElementById("description").style.border="1px solid red";
+                document.getElementById("descriptionLabel").style.display="block";
+            }else document.getElementById("descriptionLabel").style.display="none";
+         }
+        function submitForm(){
+            var fName=document.getElementById("fName").value;
+            var lName=document.getElementById("lName").value;
+            var pinNum=document.getElementById("pin").value;
+            var state=document.getElementById("state").value;
+            var city=document.getElementById("city").value;
+            var phoneNumber=document.getElementById("phoneNumber").value;
+            var panNumber=document.getElementById("panNumber").value;
+            var description=document.getElementById("description").value;
+            const userDetail={FirstName:fName, LastName:lName, PinCode:piNum, State:state, City:city, PhoneNumber:phoneNumber, PanNumber:panNumber, Description:description ,FullName:function(){
+                return FirstName+" "+LastName;
+               }};
+        }
+        
+    </script>
+</body>
+</html>

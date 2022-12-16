@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <style>
+        .container{
+            margin: 50px;
+            padding: 50px;
+        }
+    </style>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <input type="text" id="fname">
+        <input type="text" id="lname">
+        <button onclick="myFunction()">submit</button>
+        <div id="demo"></div>
+    </div>
+
+    <script>
+        
+            // var firstName=document.getElementById("fname").value;
+            // var lastName=document.getElementById("lname").value;
+            
+            // var detail={ fName : firstName.toUpperCase(),
+            //              sName : lastName.toUpperCase(),
+            //              fullName : function(){
+            //              return this.fName +" "+ this.sName;
+            //             }}
+            // alert(detail.fullName());
+            
+            const fruits = ["Banana", "Orange", "Apple"];
+            document.getElementById("demo").innerHTML = fruits;
+
+            function myFunction() {
+            fruits[fruits.length] = "Lemon";
+            document.getElementById("demo").innerHTML = fruits;
+            }
+        
+    </script>
+</body>
+</html>
