@@ -9,3 +9,4 @@ prom.then((num)=>{
 }).catch((error)=>{
     console.log(error);
 })
+//this is for practice.
